@@ -1,23 +1,29 @@
-#!/usr/bin/python
+#!/bin/python3
 
 import socket
 import sys
 
-if len(sys.argv) != 2:
-        print("Usage: vrfy.py <username>")
+if len(sys.argv) != 3:
+        print("Usage: vrfy.py <host IP> <username>")
         sys.exit(0)
+
+host = sys.argv[1]
+names = open(sys.argv[2])
 
 socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-connection = socket.connect(('10.11.1.217',25))
+connection = socket.connect((host,25))
 
 banner = socket.recv(1024)
 
-print(banner)
+print(banner.decode('utf-8'))
 
-socket.send('VRFY ' + sys.argv[1] + '\r\n')
-result = socket.recv(1024)
+for line in names:
+    command = 'VRFY ' + line + '\r\n'
+    socket.send(command.encode())
+    result = socket.recv(1024)
 
-print(result)
+    print(result.decode('utf-8'))
+
 
 socket.close()
