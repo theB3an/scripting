@@ -1,2 +1,2 @@
 # Scripts
-Random scripts I created while studying for my OSCP
+Random scripts I created while studying
