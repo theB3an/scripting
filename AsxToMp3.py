@@ -1,10 +1,6 @@
 '''
 # Exploit Title: ASX to MP3 Converter 1.82.50 Stack Overflow
-# Date: 2 Oct 2015
-# Exploit Author: ex_ptr
-# Vendor Homepage: http://mini-stream.net
-# Version: 1.82.50
-# Tested on: Windows XP SP3
+# EDB ID: 38382
 '''
 
 import struct
